@@ -73,6 +73,17 @@ body {
   );
 }
 
+/**
+ * Skip layout, style and paint for sections that are still below the fold.
+ * The browser reserves the space from contain-intrinsic-size and does the real
+ * work only when the section approaches the viewport - which keeps scrolling
+ * past the long lower half of the page cheap.
+ */
+.defer-paint {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 900px;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
