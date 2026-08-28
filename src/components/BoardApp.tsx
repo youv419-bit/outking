@@ -39,6 +39,8 @@ export default function BoardApp({ initialState, initialSlug = null }: Props) {
   const [outbidAlert, setOutbidAlert] = useState<string | null>(null);
   const dismissedRef = useRef<Set<string>>(new Set());
   const zoomRef = useRef<ZoomHandle | null>(null);
+  const stageRef = useRef<HTMLDivElement | null>(null);
+  const [boardVisible, setBoardVisible] = useState(true);
 
   const positions = state.positions;
   const selected = useMemo(
@@ -74,6 +76,19 @@ export default function BoardApp({ initialState, initialSlug = null }: Props) {
       document.removeEventListener('visibilitychange', onVisible);
     };
   }, [refresh]);
+
+  // Park the 3D render loop whenever the board is not on screen. This is what
+  // keeps scrolling smooth once there is a long page below the arena.
+  useEffect(() => {
+    const node = stageRef.current;
+    if (!node || typeof IntersectionObserver === 'undefined') return;
+    const observer = new IntersectionObserver(
+      ([entry]) => setBoardVisible(entry.isIntersecting),
+      { rootMargin: '120px' },
+    );
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, []);
 
   // Presence: one ping on load, then a slow heartbeat while the tab is visible.
   useEffect(() => {
@@ -162,13 +177,17 @@ export default function BoardApp({ initialState, initialSlug = null }: Props) {
 
   return (
     <>
-      <div className="relative h-[68vh] min-h-[420px] w-full sm:h-[78vh]">
+      <div
+        ref={stageRef}
+        className="relative h-[68vh] min-h-[420px] w-full sm:h-[78vh]"
+      >
         <div className="absolute inset-0 vignette">
           <Scene
             positions={positions}
             selectedSlug={selectedSlug}
             currency={state.currency}
             zoomRef={zoomRef}
+            active={boardVisible}
             onSelect={(slug) => setSelectedSlug(slug)}
           />
         </div>

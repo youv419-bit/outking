@@ -231,6 +231,8 @@ export type SceneProps = {
   selectedSlug: string | null;
   currency: string;
   zoomRef: RefObject<ZoomHandle | null>;
+  /** false parks the render loop - see the note on the Canvas below. */
+  active?: boolean;
   onSelect: (slug: string | null) => void;
 };
 
@@ -239,6 +241,7 @@ export default function Scene({
   selectedSlug,
   currency,
   zoomRef,
+  active = true,
   onSelect,
 }: SceneProps) {
   const controls = useRef<OrbitControlsType | null>(null);
@@ -264,7 +267,16 @@ export default function Scene({
   return (
     <Canvas
       shadows
-      dpr={[1, 1.8]}
+      /**
+       * The board stops rendering once it scrolls out of view.
+       *
+       * A live canvas repaints 60 times a second whatever else is happening,
+       * and every one of the sixteen price chips is a drei <Html> that writes
+       * DOM styles on each of those frames. Off screen that is pure cost, and
+       * it lands on the main thread exactly when the page is scrolling.
+       */
+      frameloop={active ? 'always' : 'never'}
+      dpr={[1, 1.5]}
       gl={{ antialias: true, powerPreference: 'high-performance' }}
       camera={{ position: [0, 4.6, 7.4], fov: 34, near: 0.1, far: 100 }}
       onPointerMissed={() => onSelect(null)}
@@ -298,7 +310,7 @@ export default function Scene({
           scale={10}
           blur={2.4}
           far={4}
-          resolution={512}
+          resolution={384}
           color="#000000"
         />
       </Suspense>

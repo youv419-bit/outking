@@ -47,7 +47,7 @@ export default function ExampleBoard({ currency }: { currency: string }) {
   return (
     <section
       aria-labelledby="example-heading"
-      className="mx-auto w-full max-w-5xl px-5 pb-20"
+      className="defer-paint mx-auto w-full max-w-5xl px-5 pb-20"
     >
       <div className="flex flex-wrap items-baseline justify-between gap-2">
         <h2

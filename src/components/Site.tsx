@@ -69,7 +69,7 @@ function PositionIndex({ state }: { state: BoardState }) {
   return (
     <section
       aria-labelledby="positions-heading"
-      className="mx-auto w-full max-w-5xl px-5 pb-16"
+      className="defer-paint mx-auto w-full max-w-5xl px-5 pb-16"
     >
       <h2
         id="positions-heading"
@@ -124,7 +124,7 @@ function HowItWorks() {
   return (
     <section
       aria-labelledby="how-heading"
-      className="mx-auto w-full max-w-5xl px-5 pb-20"
+      className="defer-paint mx-auto w-full max-w-5xl px-5 pb-20"
     >
       <h2
         id="how-heading"
