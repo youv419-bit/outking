@@ -193,7 +193,7 @@ export default function BoardApp({ initialState, initialSlug = null }: Props) {
         </div>
 
         {/* Supply counter */}
-        <div className="pointer-events-none absolute left-1/2 top-4 w-[min(92vw,420px)] -translate-x-1/2 sm:left-6 sm:translate-x-0">
+        <div className="pointer-events-none absolute left-1/2 top-4 z-30 w-[min(92vw,420px)] -translate-x-1/2 sm:left-6 sm:translate-x-0">
           <div className="pointer-events-auto">
             <Stats stats={state.stats} />
           </div>
@@ -201,7 +201,7 @@ export default function BoardApp({ initialState, initialSlug = null }: Props) {
 
         {/* Ownership panel */}
         {selected && (
-          <div className="pointer-events-none absolute inset-x-3 bottom-3 flex justify-center sm:inset-auto sm:right-4 sm:top-4 sm:block">
+          <div className="pointer-events-none absolute inset-x-3 bottom-3 z-40 flex justify-center sm:inset-auto sm:right-4 sm:top-4 sm:block">
             <PositionPanel
               position={selected}
               currency={state.currency}
@@ -213,7 +213,13 @@ export default function BoardApp({ initialState, initialSlug = null }: Props) {
         )}
 
         {/* Zoom lives here rather than on the wheel, so the page always scrolls. */}
-        <div className="absolute bottom-4 left-4 flex flex-col gap-2">
+        {/* On a phone the panel is a bottom sheet that would swallow these,
+            so they step aside until it closes. */}
+        <div
+          className={`absolute bottom-4 left-4 z-20 flex-col gap-2 ${
+            selected ? 'hidden sm:flex' : 'flex'
+          }`}
+        >
           <button
             type="button"
             aria-label="Zoom in"
@@ -233,7 +239,7 @@ export default function BoardApp({ initialState, initialSlug = null }: Props) {
         </div>
 
         {!selected && (
-          <p className="pointer-events-none absolute bottom-5 left-1/2 -translate-x-1/2 text-center text-[11px] uppercase tracking-[0.24em] text-white/30">
+          <p className="pointer-events-none absolute bottom-5 left-1/2 z-20 -translate-x-1/2 text-center text-[11px] uppercase tracking-[0.24em] text-white/30">
             Tap a piece to claim or outbid · drag to rotate
           </p>
         )}

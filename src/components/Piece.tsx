@@ -189,8 +189,16 @@ export default function Piece({
         position={[0, height + (position.rank === 1 ? (isKing ? 0.82 : 0.6) : 0.24), 0]}
         center
         distanceFactor={7.5}
-        zIndexRange={[20, 0]}
-        style={{ pointerEvents: 'auto' }}
+        /* Kept below the UI layer: the ownership panel sits at z-30, and these
+           chips used to paint straight over it. */
+        zIndexRange={[10, 0]}
+        style={{
+          pointerEvents: 'auto',
+          // Recede while another piece is selected, so the open panel reads
+          // as the foreground rather than fighting sixteen price tags.
+          opacity: dimmed ? 0.35 : 1,
+          transition: 'opacity .2s ease',
+        }}
       >
         <button
           type="button"
