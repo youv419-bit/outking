@@ -1,0 +1,165 @@
+{
+  "note": "Fixed supply of 16 positions. Amounts are in cents (4000 = $40.00). Edit and re-run `npm run seed` to change prices. Seeding only updates the STARTING bid: a position that is already owned keeps the price bidding set.",
+  "positions": [
+    {
+      "slug": "king",
+      "pieceType": "king",
+      "label": "King",
+      "square": "e1",
+      "file": 4,
+      "rank": 1,
+      "startingBidCents": 2000,
+      "sortOrder": 1
+    },
+    {
+      "slug": "queen",
+      "pieceType": "queen",
+      "label": "Queen",
+      "square": "d1",
+      "file": 3,
+      "rank": 1,
+      "startingBidCents": 1200,
+      "sortOrder": 2
+    },
+    {
+      "slug": "rook-a",
+      "pieceType": "rook",
+      "label": "Queen's Rook",
+      "square": "a1",
+      "file": 0,
+      "rank": 1,
+      "startingBidCents": 800,
+      "sortOrder": 3
+    },
+    {
+      "slug": "rook-h",
+      "pieceType": "rook",
+      "label": "King's Rook",
+      "square": "h1",
+      "file": 7,
+      "rank": 1,
+      "startingBidCents": 800,
+      "sortOrder": 4
+    },
+    {
+      "slug": "bishop-c",
+      "pieceType": "bishop",
+      "label": "Queen's Bishop",
+      "square": "c1",
+      "file": 2,
+      "rank": 1,
+      "startingBidCents": 500,
+      "sortOrder": 5
+    },
+    {
+      "slug": "bishop-f",
+      "pieceType": "bishop",
+      "label": "King's Bishop",
+      "square": "f1",
+      "file": 5,
+      "rank": 1,
+      "startingBidCents": 500,
+      "sortOrder": 6
+    },
+    {
+      "slug": "knight-b",
+      "pieceType": "knight",
+      "label": "Queen's Knight",
+      "square": "b1",
+      "file": 1,
+      "rank": 1,
+      "startingBidCents": 500,
+      "sortOrder": 7
+    },
+    {
+      "slug": "knight-g",
+      "pieceType": "knight",
+      "label": "King's Knight",
+      "square": "g1",
+      "file": 6,
+      "rank": 1,
+      "startingBidCents": 500,
+      "sortOrder": 8
+    },
+    {
+      "slug": "pawn-a",
+      "pieceType": "pawn",
+      "label": "A-Pawn",
+      "square": "a2",
+      "file": 0,
+      "rank": 2,
+      "startingBidCents": 200,
+      "sortOrder": 9
+    },
+    {
+      "slug": "pawn-b",
+      "pieceType": "pawn",
+      "label": "B-Pawn",
+      "square": "b2",
+      "file": 1,
+      "rank": 2,
+      "startingBidCents": 200,
+      "sortOrder": 10
+    },
+    {
+      "slug": "pawn-c",
+      "pieceType": "pawn",
+      "label": "C-Pawn",
+      "square": "c2",
+      "file": 2,
+      "rank": 2,
+      "startingBidCents": 200,
+      "sortOrder": 11
+    },
+    {
+      "slug": "pawn-d",
+      "pieceType": "pawn",
+      "label": "D-Pawn",
+      "square": "d2",
+      "file": 3,
+      "rank": 2,
+      "startingBidCents": 200,
+      "sortOrder": 12
+    },
+    {
+      "slug": "pawn-e",
+      "pieceType": "pawn",
+      "label": "E-Pawn",
+      "square": "e2",
+      "file": 4,
+      "rank": 2,
+      "startingBidCents": 200,
+      "sortOrder": 13
+    },
+    {
+      "slug": "pawn-f",
+      "pieceType": "pawn",
+      "label": "F-Pawn",
+      "square": "f2",
+      "file": 5,
+      "rank": 2,
+      "startingBidCents": 200,
+      "sortOrder": 14
+    },
+    {
+      "slug": "pawn-g",
+      "pieceType": "pawn",
+      "label": "G-Pawn",
+      "square": "g2",
+      "file": 6,
+      "rank": 2,
+      "startingBidCents": 200,
+      "sortOrder": 15
+    },
+    {
+      "slug": "pawn-h",
+      "pieceType": "pawn",
+      "label": "H-Pawn",
+      "square": "h2",
+      "file": 7,
+      "rank": 2,
+      "startingBidCents": 200,
+      "sortOrder": 16
+    }
+  ]
+}

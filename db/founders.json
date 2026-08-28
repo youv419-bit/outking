@@ -1,0 +1,23 @@
+{
+  "note": "Founding owners. Positions granted without payment to seed the board. Each is recorded at the position's starting bid, so the next person pays the normal steal price. Run with: npm run founders",
+  "grants": [
+    {
+      "slug": "king",
+      "handle": "topgamer",
+      "email": "you@yourdomain.com",
+      "site": "https://topgamer.lol",
+      "name": "TOPGAMER.LOL",
+      "tagline": "100 leaderboard spots for gamers, streamers and studios.",
+      "x": null
+    },
+    {
+      "slug": "queen",
+      "handle": "syc",
+      "email": "you@yourdomain.com",
+      "site": "https://syc.lol",
+      "name": "syc.lol",
+      "tagline": "Claim a lot cheap, or homestead it forever.",
+      "x": null
+    }
+  ]
+}

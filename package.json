@@ -1,0 +1,51 @@
+{
+  "name": "chessbid",
+  "version": "1.0.0",
+  "private": true,
+  "description": "ChessBid \u2014 own a chess position, defend it, outbid anyone.",
+  "engines": {
+    "node": ">=20.11.0"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start -p ${PORT:-3000}",
+    "migrate": "node scripts/migrate.mjs",
+    "seed": "node scripts/seed.mjs",
+    "railway:start": "node scripts/migrate.mjs && node scripts/seed.mjs && next start -p ${PORT:-3000}",
+    "lint": "next lint",
+    "typecheck": "tsc --noEmit",
+    "test": "node --experimental-strip-types --test tests/*.test.mjs",
+    "verify": "npm run typecheck && npm run lint && npm run test && npm run build",
+    "db:setup": "node scripts/migrate.mjs && node scripts/seed.mjs",
+    "position:reset": "node scripts/reset-position.mjs",
+    "board:reset": "node scripts/reset-board.mjs",
+    "position:grant": "node scripts/grant-position.mjs",
+    "founders": "node scripts/seed-founders.mjs"
+  },
+  "dependencies": {
+    "@react-three/drei": "^10.0.0",
+    "@react-three/fiber": "^9.0.0",
+    "dodopayments": "^1.30.0",
+    "next": "^15.3.0",
+    "pg": "^8.13.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "server-only": "^0.0.1",
+    "three": "^0.177.0",
+    "zod": "^3.24.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "@types/pg": "^8.11.10",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "@types/three": "^0.177.0",
+    "autoprefixer": "^10.4.20",
+    "eslint": "^8.57.1",
+    "eslint-config-next": "^15.3.0",
+    "postcss": "^8.4.49",
+    "tailwindcss": "^3.4.17",
+    "typescript": "^5.7.0"
+  }
+}

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="ChessBid">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f7ecd2"/>
+      <stop offset="55%" stop-color="#d4ac5c"/>
+      <stop offset="100%" stop-color="#96682a"/>
+    </linearGradient>
+  </defs>
+  <path fill="url(#g)" d="M236 40h40v34h34v40h-34v46c34 12 58 34 66 62l24 84c4 14-6 28-21 28H167c-15 0-25-14-21-28l24-84c8-28 32-50 66-62V114h-34V74h34V40z"/>
+  <rect x="140" y="352" width="232" height="42" rx="14" fill="url(#g)"/>
+  <rect x="116" y="410" width="280" height="52" rx="18" fill="url(#g)"/>
+</svg>
