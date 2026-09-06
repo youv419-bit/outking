@@ -1,0 +1,20 @@
+{
+  "name": "rankwall",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Pay-to-rank leaderboard with bubble side walls. Dodo Payments + Railway.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "dodopayments": "^1.52.0",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "standardwebhooks": "^1.0.0"
+  }
+}
